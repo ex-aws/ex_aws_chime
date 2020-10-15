@@ -23,7 +23,8 @@ defmodule ExAwsChime.MixProject do
       # Non-runtime deps
       {:configparser_ex, "~> 4.0", runtime: false},
       {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 1.0", only: [:dev, :test], runtime: false}
+      {:dialyxir, "~> 1.0", only: [:dev, :test], runtime: false},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
 
