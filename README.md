@@ -18,8 +18,7 @@ end
 ## Use
 
 This module implementes the interface as defined at
-[https://docs.aws.amazon.com/chime/latest/APIReference]
-(https://docs.aws.amazon.com/chime/latest/APIReference)
+[https://docs.aws.amazon.com/chime/latest/APIReference](https://docs.aws.amazon.com/chime/latest/APIReference)
 
 ## Documentation
 
