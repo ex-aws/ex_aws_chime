@@ -34,7 +34,7 @@ defmodule ExAwsChime.MixProject do
       licenses: ["MIT"],
       files: ["lib", "mix.exs", "README*"],
       maintainers: ["Bernard Duggan"],
-      links: %{github: "https://github.com/circles-learning-labs/ex_aws_chime"}
+      links: %{github: "https://github.com/ex-aws/ex_aws_chime"}
     ]
   end
 end
