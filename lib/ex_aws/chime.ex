@@ -9,6 +9,7 @@ defmodule ExAws.Chime do
   alias ExAws.Chime.CreateAttendeeRequestItem
   alias ExAws.Chime.Credentials
   alias ExAws.Chime.EmergencyCallingConfiguration
+  alias ExAws.Chime.EngineTranscribeSettings
   alias ExAws.Chime.GeoMatchParams
   alias ExAws.Chime.LoggingConfiguration
   alias ExAws.Chime.MeetingNotificationConfiguration
@@ -1154,6 +1155,32 @@ defmodule ExAws.Chime do
         "Name" => name,
         "VoiceConnectorItems" => voice_connector_items
       }
+    )
+  end
+
+  @spec start_transcription(String.t(), EngineTranscribeSettings.t()) :: JSON.t()
+  def start_transcription(meeting_id, engine_transcribe_settings) do
+    json_request(
+      "/meetings/#{meeting_id}/transcription",
+      %{
+        operation: "start"
+      },
+      %{
+        "TranscriptionConfiguration" => %{
+          "EngineTranscribeSettings" => engine_transcribe_settings
+        }
+      }
+    )
+  end
+
+  @spec stop_transcription(String.t()) :: JSON.t()
+  def stop_transcription(meeting_id) do
+    json_request(
+      "/meetings/#{meeting_id}/transcription",
+      %{
+        operation: "stop"
+      },
+      %{}
     )
   end
 
