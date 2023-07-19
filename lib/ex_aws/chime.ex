@@ -1231,7 +1231,7 @@ defmodule ExAws.Chime do
 
   defp parse({:error, error}, _), do: {:error, error}
 
-  defp normalise_data(struct) when is_map(struct) do
+  def normalise_data(struct) when is_map(struct) do
     struct
     |> Map.drop([:__struct__])
     |> Enum.reduce(%{}, fn
@@ -1241,8 +1241,9 @@ defmodule ExAws.Chime do
     end)
   end
 
-  defp normalise_data(v) when is_list(v), do: Enum.map(v, &normalise_data/1)
-  defp normalise_data(v) when is_binary(v), do: v
-  defp normalise_data(v) when is_integer(v), do: v
-  defp normalise_data(v) when is_boolean(v), do: v
+  def normalise_data(v) when is_atom(v), do: to_string(v)
+  def normalise_data(v) when is_list(v), do: Enum.map(v, &normalise_data/1)
+  def normalise_data(v) when is_binary(v), do: v
+  def normalise_data(v) when is_integer(v), do: v
+  def normalise_data(v) when is_boolean(v), do: v
 end
