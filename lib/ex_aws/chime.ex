@@ -9,6 +9,7 @@ defmodule ExAws.Chime do
   alias ExAws.Chime.CreateAttendeeRequestItem
   alias ExAws.Chime.Credentials
   alias ExAws.Chime.EmergencyCallingConfiguration
+  alias ExAws.Chime.EngineTranscribeSettings
   alias ExAws.Chime.GeoMatchParams
   alias ExAws.Chime.LoggingConfiguration
   alias ExAws.Chime.MeetingNotificationConfiguration
@@ -1157,6 +1158,32 @@ defmodule ExAws.Chime do
     )
   end
 
+  @spec start_transcription(String.t(), EngineTranscribeSettings.t()) :: JSON.t()
+  def start_transcription(meeting_id, engine_transcribe_settings) do
+    json_request(
+      "/meetings/#{meeting_id}/transcription",
+      %{
+        operation: "start"
+      },
+      %{
+        "TranscriptionConfiguration" => %{
+          "EngineTranscribeSettings" => engine_transcribe_settings
+        }
+      }
+    )
+  end
+
+  @spec stop_transcription(String.t()) :: JSON.t()
+  def stop_transcription(meeting_id) do
+    json_request(
+      "/meetings/#{meeting_id}/transcription",
+      %{
+        operation: "stop"
+      },
+      %{}
+    )
+  end
+
   ### HELPERS
 
   defp delete_request(action, params \\ %{}), do: rest_request(action, :delete, params)
@@ -1204,7 +1231,7 @@ defmodule ExAws.Chime do
 
   defp parse({:error, error}, _), do: {:error, error}
 
-  defp normalise_data(struct) when is_map(struct) do
+  def normalise_data(struct) when is_map(struct) do
     struct
     |> Map.drop([:__struct__])
     |> Enum.reduce(%{}, fn
@@ -1214,8 +1241,9 @@ defmodule ExAws.Chime do
     end)
   end
 
-  defp normalise_data(v) when is_list(v), do: Enum.map(v, &normalise_data/1)
-  defp normalise_data(v) when is_binary(v), do: v
-  defp normalise_data(v) when is_integer(v), do: v
-  defp normalise_data(v) when is_boolean(v), do: v
+  def normalise_data(v) when is_atom(v), do: to_string(v)
+  def normalise_data(v) when is_list(v), do: Enum.map(v, &normalise_data/1)
+  def normalise_data(v) when is_binary(v), do: v
+  def normalise_data(v) when is_integer(v), do: v
+  def normalise_data(v) when is_boolean(v), do: v
 end
