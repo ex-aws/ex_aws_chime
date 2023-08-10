@@ -7,7 +7,7 @@ defmodule ExAws.Chime.MediaPipelines do
   alias ExAws.Chime.MediaPipelines
   alias ExAws.Operation.JSON
 
-  @type state() :: :AudioOnly | :AudioWithActiveSpeakerVideo | :AudioWithCompositedVideo
+  @type state() :: :Enabled | :Disabled
 
   ### AWS Chime Media Pipelines API
 
