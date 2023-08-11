@@ -18,6 +18,6 @@ defmodule ExAws.Chime.MediaPipelines.ArtifactsConfiguration do
           audio: MediaPipelines.AudioArtifactsConfiguration.t(),
           content: MediaPipelines.ContentArtifactsConfiguration.t(),
           video: MediaPipelines.VideoArtifactsConfiguration.t(),
-          composited_video: MediaPipelines.CompositedVideoArtifactsConfiguration.t()
+          composited_video: MediaPipelines.CompositedVideoArtifactsConfiguration.t() | nil
         }
 end
