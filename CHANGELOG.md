@@ -1,3 +1,6 @@
+1.0.1
+* Fix some typespecs in the new media pipeline work
+
 1.0.0
 * Add media pipeline support
 * Add transcription support

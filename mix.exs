@@ -4,7 +4,7 @@ defmodule ExAwsChime.MixProject do
   def project do
     [
       app: :ex_aws_chime,
-      version: "1.0.0",
+      version: "1.0.1",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
