@@ -1,10 +1,9 @@
 defmodule ExAws.Chime.MediaPipelines do
-  @moduledoc """
-  """
+  @moduledoc false
 
   alias ExAws.Chime
-  alias ExAws.Chime.Tag
   alias ExAws.Chime.MediaPipelines
+  alias ExAws.Chime.Tag
   alias ExAws.Operation.JSON
 
   @type state() :: :Enabled | :Disabled

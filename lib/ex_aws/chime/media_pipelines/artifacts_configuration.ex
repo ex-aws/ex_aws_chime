@@ -5,14 +5,14 @@ defmodule ExAws.Chime.MediaPipelines.ArtifactsConfiguration do
   See https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ArtifactsConfiguration.html
   """
 
+  alias ExAws.Chime.MediaPipelines
+
   defstruct [
     :audio,
     :content,
     :video,
     :composited_video
   ]
-
-  alias ExAws.Chime.MediaPipelines
 
   @type t :: %__MODULE__{
           audio: MediaPipelines.AudioArtifactsConfiguration.t(),

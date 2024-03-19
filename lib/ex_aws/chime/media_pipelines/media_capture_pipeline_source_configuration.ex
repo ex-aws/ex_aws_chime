@@ -5,12 +5,12 @@ defmodule ExAws.Chime.MediaPipelines.MediaCapturePipelineSourceConfiguration do
   See https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_MediaCapturePipelineSourceConfiguration.html
   """
 
+  alias ExAws.Chime.MediaPipelines
+
   defstruct [
     :chime_sdk_meeting_configuration,
     :media_pipeline_arn
   ]
-
-  alias ExAws.Chime.MediaPipelines
 
   @type t :: %__MODULE__{
           chime_sdk_meeting_configuration:

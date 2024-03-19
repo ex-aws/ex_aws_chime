@@ -5,6 +5,8 @@ defmodule ExAws.Chime.MediaPipelines.ArtifactsConcatenationConfiguration do
   See https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ArtifactsConcatenationConfiguration.html
   """
 
+  alias ExAws.Chime.MediaPipelines
+
   defstruct [
     :audio,
     :composited_video,
@@ -14,8 +16,6 @@ defmodule ExAws.Chime.MediaPipelines.ArtifactsConcatenationConfiguration do
     :transcription_messages,
     :video
   ]
-
-  alias ExAws.Chime.MediaPipelines
 
   @type t :: %__MODULE__{
           audio: MediaPipelines.AudioConcatenationConfiguration.t(),

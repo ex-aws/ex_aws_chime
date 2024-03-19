@@ -5,12 +5,12 @@ defmodule ExAws.Chime.MediaPipelines.ConcatenationSource do
   See https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ConcatenationSource.html
   """
 
+  alias ExAws.Chime.MediaPipelines
+
   defstruct [
     :media_capture_pipeline_source_configuration,
     :type
   ]
-
-  alias ExAws.Chime.MediaPipelines
 
   @type t :: %__MODULE__{
           media_capture_pipeline_source_configuration:
