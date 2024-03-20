@@ -32,6 +32,7 @@ defmodule ExAws.Chime.Meetings do
   def create_attendee(meeting_id, create_attendee) do
     json_request(
       "/meetings/#{meeting_id}/attendees",
+      %{},
       create_attendee
     )
   end
@@ -52,6 +53,7 @@ defmodule ExAws.Chime.Meetings do
       ) do
     json_request(
       "/meetings",
+      %{},
       %{
         "ClientRequestToken" => UUID.uuid4(),
         "ExternalMeetingId" => external_meeting_id,
@@ -176,8 +178,8 @@ defmodule ExAws.Chime.Meetings do
   end
 
   ### HELPERS
-  defp json_request(path, data, method \\ :post),
-    do: Chime.json_request(path, data, method, @service)
+  defp json_request(path, params, data),
+    do: Chime.json_request(path, params, data, :post, @service)
 
   defp delete_request(path), do: Chime.delete_request(path, @service)
 

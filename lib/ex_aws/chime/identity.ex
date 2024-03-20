@@ -9,7 +9,7 @@ defmodule ExAws.Chime.Identity do
   alias ExAws.Operation.JSON
   alias ExAws.Operation.RestQuery
 
-  @service "chime-sdk-identity"
+  @service :"chime-sdk-identity"
 
   @spec list_tags_for_resource(String.t()) :: RestQuery.t()
   def list_tags_for_resource(resource_arn) do

@@ -14,6 +14,7 @@ defmodule ExAws.Chime do
   def get_request(action, params, service), do: rest_request(action, params, :get, service)
   def post_request(action, params, service), do: rest_request(action, params, :post, service)
 
+  @spec rest_request(String.t(), map(), atom(), atom()) :: RestQuery.t()
   defp rest_request(action, params \\ %{}, method, service) do
     %RestQuery{
       http_method: method,
@@ -24,7 +25,8 @@ defmodule ExAws.Chime do
     }
   end
 
-  def json_request(path, params \\ %{}, data, method \\ :post, service) do
+  @spec json_request(String.t(), map(), map(), atom(), atom()) :: JSON.t()
+  def json_request(path, params, data, method, service) do
     %JSON{
       http_method: method,
       params: params,
@@ -44,7 +46,7 @@ defmodule ExAws.Chime do
 
   def normalise_data(struct) when is_map(struct) do
     struct
-    |> Map.drop([:__struct__])
+    |> Map.delete(:__struct__)
     |> Enum.reduce(%{}, fn
       {_k, nil}, acc -> acc
       {k, v}, acc when is_atom(k) -> Map.put(acc, Macro.camelize(to_string(k)), normalise_data(v))

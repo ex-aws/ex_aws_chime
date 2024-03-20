@@ -5,6 +5,8 @@ defmodule ExAws.Chime.Voice do
   """
 
   alias ExAws.Chime
+  alias ExAws.Chime.Tag
+  alias ExAws.Chime.Utils
   alias ExAws.Chime.Voice.BusinessCallingSettings
   alias ExAws.Chime.Voice.Credentials
   alias ExAws.Chime.Voice.EmergencyCallingConfiguration
@@ -16,8 +18,6 @@ defmodule ExAws.Chime.Voice do
   alias ExAws.Chime.Voice.UpdatePhoneNumberRequestItem
   alias ExAws.Chime.Voice.VoiceConnectorItem
   alias ExAws.Chime.Voice.VoiceConnectorSettings
-  alias ExAws.Chime.Tag
-  alias ExAws.Chime.Utils
   alias ExAws.Operation.JSON
   alias ExAws.Operation.RestQuery
 
@@ -363,6 +363,7 @@ defmodule ExAws.Chime.Voice do
       ) do
     json_request(
       "/voice-connectors/#{voice_connector_id}/emergency-calling-configuration",
+      %{},
       %{
         "EmergencyCallingConfiguration" => emergency_calling_configuration
       },
@@ -375,6 +376,7 @@ defmodule ExAws.Chime.Voice do
   def put_voice_connector_logging_configuration(voice_connector_id, logging_configuration) do
     json_request(
       "/voice-connectors/#{voice_connector_id}/logging-configuration",
+      %{},
       %{
         "LoggingConfiguration" => logging_configuration
       },
@@ -386,6 +388,7 @@ defmodule ExAws.Chime.Voice do
   def put_voice_connector_origination(voice_connector_id, origination) do
     json_request(
       "/voice-connectors/#{voice_connector_id}/origination",
+      %{},
       %{
         "Origination" => origination
       },
@@ -405,6 +408,7 @@ defmodule ExAws.Chime.Voice do
       ) do
     json_request(
       "/voice-connectors/#{voice_connector_id}/programmable-numbers/proxy",
+      %{},
       %{
         "DefaultSessionExpiryMinutes" => default_session_expiry_minutes,
         "Disabled" => disabled,
@@ -420,6 +424,7 @@ defmodule ExAws.Chime.Voice do
   def put_voice_connector_streaming_configuration(voice_connector_id, streaming_configuration) do
     json_request(
       "/voice-connectors/#{voice_connector_id}/streaming-configuration",
+      %{},
       %{
         "StreamingConfiguration" => streaming_configuration
       },
@@ -431,6 +436,7 @@ defmodule ExAws.Chime.Voice do
   def put_voice_connector_termination(voice_connector_id, termination) do
     json_request(
       "/voice-connectors/#{voice_connector_id}/termination",
+      %{},
       %{
         "Termination" => termination
       },
@@ -501,6 +507,7 @@ defmodule ExAws.Chime.Voice do
   def update_global_settings(business_calling, voice_connector) do
     json_request(
       "/settings",
+      %{},
       %{
         "BusinessCalling" => business_calling,
         "VoiceConnector" => voice_connector
@@ -524,6 +531,7 @@ defmodule ExAws.Chime.Voice do
   def update_phone_number_settings(calling_name) do
     json_request(
       "/settings/phone-number",
+      %{},
       %{
         "CallingName" => calling_name
       },
@@ -558,6 +566,7 @@ defmodule ExAws.Chime.Voice do
   def update_voice_connector_group(voice_connector_group_id, name, voice_connector_items) do
     json_request(
       "/voice-connectors/#{voice_connector_group_id}",
+      %{},
       %{
         "Name" => name,
         "VoiceConnectorItems" => voice_connector_items
@@ -568,8 +577,8 @@ defmodule ExAws.Chime.Voice do
 
   ### HELPERS
 
-  defp json_request(path, data, method \\ :post),
-    do: Chime.json_request(path, data, method, @service)
+  defp json_request(path, params \\ %{}, data, method \\ :post),
+    do: Chime.json_request(path, params, data, method, @service)
 
   defp delete_request(action), do: Chime.delete_request(action, @service)
   defp get_request(action, params \\ %{}), do: Chime.get_request(action, params, @service)

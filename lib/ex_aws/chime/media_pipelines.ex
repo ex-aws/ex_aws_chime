@@ -61,5 +61,5 @@ defmodule ExAws.Chime.MediaPipelines do
   ### HELPERS
 
   defp json_request(path, data, method \\ :post),
-    do: Chime.json_request(path, data, method, @service)
+    do: Chime.json_request(path, %{}, data, method, @service)
 end

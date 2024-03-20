@@ -1,4 +1,8 @@
 defmodule ExAws.Chime.Utils do
+  @moduledoc """
+  Common helper functions for Chime services
+  """
+
   @type max_results :: pos_integer() | nil
   @type paging_token :: String.t() | nil
 
