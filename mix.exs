@@ -4,7 +4,7 @@ defmodule ExAwsChime.MixProject do
   def project do
     [
       app: :ex_aws_chime,
-      version: "1.1.0",
+      version: "2.0.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -15,7 +15,7 @@ defmodule ExAwsChime.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ex_aws, "~> 2.5.0"},
+      {:ex_aws, "~> 2.5.2"},
       {:hackney, "~> 1.16"},
       {:jason, "~> 1.2"},
       {:uuid, "~> 1.1"},

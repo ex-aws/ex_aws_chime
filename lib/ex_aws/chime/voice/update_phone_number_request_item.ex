@@ -1,4 +1,4 @@
-defmodule ExAws.Chime.UpdatePhoneNumberRequestItem do
+defmodule ExAws.Chime.Voice.UpdatePhoneNumberRequestItem do
   @moduledoc """
   Module representing the Chime UpdatePhoneNumberRequestItem data type
 

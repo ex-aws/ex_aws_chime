@@ -1,4 +1,4 @@
-defmodule ExAws.Chime.CreateAttendeeRequestItem do
+defmodule ExAws.Chime.Meetings.CreateAttendeeRequestItem do
   @moduledoc """
   Module representing the Chime CreateAttendeeRequestItem data type
 

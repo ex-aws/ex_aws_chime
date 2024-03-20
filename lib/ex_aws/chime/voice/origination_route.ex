@@ -1,4 +1,4 @@
-defmodule ExAws.Chime.OriginationRoute do
+defmodule ExAws.Chime.Voice.OriginationRoute do
   @moduledoc """
   Module representing the Chime OriginationRoute data type
 

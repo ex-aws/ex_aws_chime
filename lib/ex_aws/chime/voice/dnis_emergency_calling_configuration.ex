@@ -1,4 +1,4 @@
-defmodule ExAws.Chime.DNISEmergencyCallingConfiguration do
+defmodule ExAws.Chime.Voice.DNISEmergencyCallingConfiguration do
   @moduledoc """
   Module representing the Chime DNISEmergencyCallingConfiguration data type
 

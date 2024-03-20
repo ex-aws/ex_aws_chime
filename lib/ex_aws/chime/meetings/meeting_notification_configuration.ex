@@ -1,4 +1,4 @@
-defmodule ExAws.Chime.MeetingNotificationConfiguration do
+defmodule ExAws.Chime.Meetings.MeetingNotificationConfiguration do
   @moduledoc """
   Module representing the Chime MeetingNotificationConfiguration data type
 

@@ -1,4 +1,4 @@
-defmodule ExAws.Chime.StreamingNotificationTarget do
+defmodule ExAws.Chime.Voice.StreamingNotificationTarget do
   @moduledoc """
   Module representing the Chime StreamingNotificationTarget data type
 

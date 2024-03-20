@@ -1,5 +1,8 @@
 defmodule ExAws.Chime.MediaPipelines do
-  @moduledoc false
+  @moduledoc """
+  API calls for Amazon Chime SDK Media Pipelines
+  See https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html
+  """
 
   alias ExAws.Chime
   alias ExAws.Chime.MediaPipelines
@@ -8,7 +11,7 @@ defmodule ExAws.Chime.MediaPipelines do
 
   @type state() :: :Enabled | :Disabled
 
-  ### AWS Chime Media Pipelines API
+  @service :"chime-sdk-media-pipelines"
 
   @spec create_media_capture_pipeline(
           String.t(),
@@ -39,7 +42,6 @@ defmodule ExAws.Chime.MediaPipelines do
     )
   end
 
-  # See https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaConcatenationPipeline.html
   @spec create_media_concatenation_pipeline(
           [MediaPipelines.ConcatenationSource.t()],
           [MediaPipelines.ConcatenationSink.t()],
@@ -58,13 +60,6 @@ defmodule ExAws.Chime.MediaPipelines do
 
   ### HELPERS
 
-  defp json_request(path, data, method \\ :post) do
-    %JSON{
-      headers: [{"content-type", "application/json"}],
-      http_method: method,
-      path: path,
-      data: Chime.normalise_data(data),
-      service: :"chime-sdk-media-pipelines"
-    }
-  end
+  defp json_request(path, data, method \\ :post),
+    do: Chime.json_request(path, data, method, @service)
 end

@@ -1,4 +1,4 @@
-defmodule ExAws.Chime.LoggingConfiguration do
+defmodule ExAws.Chime.Voice.LoggingConfiguration do
   @moduledoc """
   Module representing the Chime LoggingConfiguration data type
 

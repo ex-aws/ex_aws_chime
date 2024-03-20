@@ -1,4 +1,4 @@
-defmodule ExAws.Chime.Termination do
+defmodule ExAws.Chime.Voice.Termination do
   @moduledoc """
   Module representing the Chime Termination data type
 

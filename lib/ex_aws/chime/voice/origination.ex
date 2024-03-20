@@ -1,11 +1,11 @@
-defmodule ExAws.Chime.Origination do
+defmodule ExAws.Chime.Voice.Origination do
   @moduledoc """
   Module representing the Chime Origination data type
 
   See https://docs.aws.amazon.com/chime/latest/APIReference/API_Origination.html
   """
 
-  alias ExAws.Chime.OriginationRoute
+  alias ExAws.Chime.Voice.OriginationRoute
 
   defstruct [
     :disabled,

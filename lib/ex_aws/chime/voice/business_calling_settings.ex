@@ -1,4 +1,4 @@
-defmodule ExAws.Chime.BusinessCallingSettings do
+defmodule ExAws.Chime.Voice.BusinessCallingSettings do
   @moduledoc """
   Module representing the Chime BusinessCallingSettings data type
 

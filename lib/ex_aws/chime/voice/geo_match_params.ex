@@ -1,4 +1,4 @@
-defmodule ExAws.Chime.GeoMatchParams do
+defmodule ExAws.Chime.Voice.GeoMatchParams do
   @moduledoc """
   Module representing the Chime GeoMatchParams data type
 

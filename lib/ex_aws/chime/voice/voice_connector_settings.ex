@@ -1,4 +1,4 @@
-defmodule ExAws.Chime.VoiceConnectorSettings do
+defmodule ExAws.Chime.Voice.VoiceConnectorSettings do
   @moduledoc """
   Module representing the Chime VoiceConnectorSettings data type
 

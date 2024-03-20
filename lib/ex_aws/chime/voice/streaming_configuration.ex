@@ -1,11 +1,11 @@
-defmodule ExAws.Chime.StreamingConfiguration do
+defmodule ExAws.Chime.Voice.StreamingConfiguration do
   @moduledoc """
   Module representing the Chime StreamingConfiguration data type
 
   See https://docs.aws.amazon.com/chime/latest/APIReference/API_StreamingConfiguration.html
   """
 
-  alias ExAws.Chime.StreamingNotificationTarget
+  alias ExAws.Chime.Voice.StreamingNotificationTarget
 
   defstruct [
     :data_retention_in_hours,

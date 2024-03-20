@@ -1,4 +1,4 @@
-defmodule ExAws.Chime.EngineTranscribeSettings do
+defmodule ExAws.Chime.Meetings.EngineTranscribeSettings do
   @moduledoc """
   Module representing the Chime EngineTranscribeSettings data type
 

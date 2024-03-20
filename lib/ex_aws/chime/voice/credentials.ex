@@ -1,4 +1,4 @@
-defmodule ExAws.Chime.Credentials do
+defmodule ExAws.Chime.Voice.Credentials do
   @moduledoc """
   Module representing the Chime Credentials data type
 
