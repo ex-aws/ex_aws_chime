@@ -3,8 +3,8 @@ defmodule ExAws.Chime do
   Chime API calls are now broken up into their various services. This module is a
   top level helper.
 
-  @See ExAws.Chime.Meetings, ExAws.Chime.Voice, ExAws.Chime.Identity, and ExAws.Chime.MediaPipelines
-  for the different services.
+  See `ExAws.Chime.Meetings`, `ExAws.Chime.Voice`, `ExAws.Chime.Identity`, and
+  `ExAws.Chime.MediaPipelines` for the different services.
   """
 
   alias ExAws.Operation.JSON
