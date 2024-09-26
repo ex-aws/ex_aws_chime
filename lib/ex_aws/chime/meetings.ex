@@ -5,9 +5,11 @@ defmodule ExAws.Chime.Meetings do
   """
 
   alias ExAws.Chime
+  alias ExAws.Chime.Meetings.AttendeeCapabilities
+  alias ExAws.Chime.Meetings.CreateAttendeeRequestItem
   alias ExAws.Chime.Meetings.CreateAttendeeRequestItem
   alias ExAws.Chime.Meetings.EngineTranscribeSettings
-  alias ExAws.Chime.Meetings.MeetingNotificationConfiguration
+  alias ExAws.Chime.Meetings.NotificationConfiguration
   alias ExAws.Chime.Tag
   alias ExAws.Chime.Utils
   alias ExAws.Operation.JSON
@@ -28,6 +30,26 @@ defmodule ExAws.Chime.Meetings do
     )
   end
 
+  @spec batch_update_attendee_capabilities_except(String.t(), AttendeeCapabilities.t(), [
+          String.t()
+        ]) :: JSON.t()
+  def batch_update_attendee_capabilities_except(
+        meeting_id,
+        attendee_capabilities,
+        excluded_attendee_ids
+      ) do
+    json_request(
+      "/meetings/#{meeting_id}/attendees/capabilities",
+      %{
+        operation: "batch-update-except"
+      },
+      %{
+        "Capabilities" => attendee_capabilities,
+        "ExcludedAttendeeIds" => Enum.map(excluded_attendee_ids, &%{AttendeeId: &1})
+      }
+    )
+  end
+
   @spec create_attendee(String.t(), CreateAttendeeRequestItem.t()) :: JSON.t()
   def create_attendee(meeting_id, create_attendee) do
     json_request(
@@ -41,7 +63,7 @@ defmodule ExAws.Chime.Meetings do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
-          MeetingNotificationConfiguration.t() | nil,
+          NotificationConfiguration.t() | nil,
           [Tag.t()] | nil
         ) :: JSON.t()
   def create_meeting(
@@ -70,7 +92,7 @@ defmodule ExAws.Chime.Meetings do
           String.t(),
           String.t() | nil,
           String.t() | nil,
-          MeetingNotificationConfiguration.t() | nil,
+          NotificationConfiguration.t() | nil,
           [Tag.t()] | nil
         ) :: JSON.t()
   def create_meeting_with_attendees(
@@ -177,9 +199,21 @@ defmodule ExAws.Chime.Meetings do
     )
   end
 
+  @spec update_attendee_capabilities(String.t(), String.t(), AttendeeCapabilities.t()) :: JSON.t()
+  def update_attendee_capabilities(meeting_id, attendee_id, attendee_capabilities) do
+    json_request(
+      "/meetings/#{meeting_id}/attendees/#{attendee_id}/capabilities",
+      %{},
+      %{
+        "Capabilities" => attendee_capabilities
+      },
+      :put
+    )
+  end
+
   ### HELPERS
-  defp json_request(path, params, data),
-    do: Chime.json_request(path, params, data, :post, @service)
+  defp json_request(path, params, data, method \\ :post),
+    do: Chime.json_request(path, params, data, method, @service)
 
   defp delete_request(path), do: Chime.delete_request(path, @service)
 
