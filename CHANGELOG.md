@@ -1,3 +1,7 @@
+2.0.1 (2024-09-26)
+* Add UpdateAttendeeCapabilities and BatchUpdateAttendeeCapabilitiesExcept
+* BREAKING: Rename `MeetingNotificationConfiguration` type to `NotificationConfiguration`
+
 2.0.0 (2024-03-20)
 * BREAKING: Chime services are now broken up into the individual services rather than being
 (mostly) grouped together in ExAws.Chime. Note that this is largely just a reorganisation of the
